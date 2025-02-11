@@ -1,0 +1,10 @@
+@import url(index/global.css);
+@import url(index/header.css);
+@import url(index/footer.css);
+@import url(index/animations.css);
+@import url(index/pokemoncolors.css);
+@import url(index/pokedex.css);
+@import url(./detalhes/pokemon-individual.css);
+@import url(./detalhes/pokemon-infos.css);
+@import url(./detalhes/pokemon-detail.css);
+@import url(./detalhes/statscolors.css);

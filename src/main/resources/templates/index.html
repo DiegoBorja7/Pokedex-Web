@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta http-equiv="Permissions-Policy" content="interest-cohort=()">
+
+    <title th:text="${title}"></title>
+
+    <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+
+    <!-- css -->
+    <link rel="stylesheet" href="/css/main.css">
+
+    <!-- font roboto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap"
+          as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<header class="header-bg fadeIn" aria-label="Encabezado">
+    <div class="header container">
+        <a href="/pokedex" class="logo">
+            <img src="/img/header.jpg" width="32" height="32" alt="Logo Pokeball">
+        </a>
+
+        <label for="search">
+            <input type="text" placeholder="Buscar Pokémon" id="search" name="search">
+        </label>
+
+        <nav aria-label="Principal">
+            <ul class="header-menu">
+                <li><a href="/pokedex">Inicio</a></li>
+                </a>
+                </li>
+                <li><a href="details.html">
+                    Pokemons
+                </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main class="content">
+    <h1 class="titulo">Lista de Pokemons</h1>
+    <ol id="pokemonList" class="pokemons">
+    </ol>
+
+    <div class="pagination fadeIn">
+        <button id="loadMoreButton" type="button">
+            Cargar mas...
+        </button>
+    </div>
+</main>
+
+<footer class="footer container fadeIn" aria-label="Rodapé">
+    <h3>Creado por: <a href="https://www.instagram.com/diego.ab7/" target="_blank">@diego.ab7</a>.</h3>
+</footer>
+
+<!-- <script src="assets/js/loadPokemon.js"></script> -->
+<script src="assets/js/pokemon-model.js"></script>
+<script src="assets/js/poke-api.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+
+</html>

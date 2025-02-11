@@ -1,0 +1,42 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    transition: .2s;
+    border: none;
+}
+
+body {
+    font-family: 'Nunito', Arial, Helvetica, sans-serif;
+    background-color: #f7f7f7;
+    color: #141414;
+    overflow-x: hidden !important;
+}
+
+a {
+    color: inherit;
+    display: block;
+}
+
+body::-webkit-scrollbar {
+    width: 11px;
+    background-color: #fff;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #141414;
+    border: 2px solid #fff;
+    border-radius: 10px;
+}
+
+.container {
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
