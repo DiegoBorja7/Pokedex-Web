@@ -5,28 +5,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <meta http-equiv="Permissions-Policy" content="interest-cohort=()">
 
-    <title th:text="${title}"></title>
+    <title>Pokedex DB</title>
 
     <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
-
-    <!-- css -->
     <link rel="stylesheet" href="/css/main.css">
 
-    <!-- font roboto -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap"
-          as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap" as="style">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 <header class="header-bg fadeIn" aria-label="Encabezado">
     <div class="header container">
-        <a href="/pokedex" class="logo">
+        <a href="/pokedex/" class="logo">
             <img src="/img/header.jpg" width="32" height="32" alt="Logo Pokeball">
         </a>
 
@@ -36,13 +31,8 @@
 
         <nav aria-label="Principal">
             <ul class="header-menu">
-                <li><a href="/pokedex">Inicio</a></li>
-                </a>
-                </li>
-                <li><a href="details.html">
-                    Pokemons
-                </a>
-                </li>
+                <li><a href="/pokedex/">Inicio</a></li>
+                <li><a href="/pokedex/pokemon/1">Pokemons</a></li>
             </ul>
         </nav>
     </div>
@@ -50,24 +40,35 @@
 
 <main class="content">
     <h1 class="titulo">Lista de Pokemons</h1>
-    <ol id="pokemonList" class="pokemons">
-    </ol>
+    <ol id="pokemonList" class="pokemons"></ol>
+    <ul class="pokemons">
+        <li th:each="pokemon : ${pokemons}" class="fadeIn">
+            <a th:href="@{'/pokemon/' + ${pokemon.id}}" class="pokemon">
+                <span class="number" th:text="'#' + ${pokemon.id}"></span>
+                <h2 class="name" th:text="${pokemon.name}"></h2>
+                <div class="detail">
+                    <ol class="types">
+                        <li th:each="pType : ${pokemon.types}"
+                            th:text="${pType.type.name}"
+                            th:classappend="'type ' + ${pType.type.name}">
+                        </li>
+                    </ol>
+                    <img th:src="${pokemon.photo}" th:alt="${pokemon.name}" width="156" height="144" class="slideInRight">
+                </div>
+            </a>
+        </li>
+    </ul>
 
     <div class="pagination fadeIn">
-        <button id="loadMoreButton" type="button">
-            Cargar mas...
-        </button>
+        <button id="loadMoreButton" type="button">Cargar mas...</button>
     </div>
 </main>
 
-<footer class="footer container fadeIn" aria-label="Rodapé">
+<footer class="footer container fadeIn" aria-label="Pie de página">
     <h3>Creado por: <a href="https://www.instagram.com/diego.ab7/" target="_blank">@diego.ab7</a>.</h3>
 </footer>
 
-<!-- <script src="assets/js/loadPokemon.js"></script> -->
-<script src="assets/js/pokemon-model.js"></script>
-<script src="assets/js/poke-api.js"></script>
-<script src="assets/js/main.js"></script>
+<script src="/js/main.js"></script>
 </body>
 
 </html>

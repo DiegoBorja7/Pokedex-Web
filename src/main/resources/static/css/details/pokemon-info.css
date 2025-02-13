@@ -1,0 +1,37 @@
+.pokemon-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: end;
+    z-index: 1;
+    margin-bottom: 12px;
+}
+
+.pokemon-content h1 {
+    font-size: 3rem;
+    text-align: right;
+    z-index: 2;
+    text-transform: capitalize;
+}
+
+.pokemon-content span {
+    top: -40px;
+    right: 0;
+    font-weight: 700;
+    font-size: 5rem;
+    opacity:.5;
+}
+
+.pokemon-content ol {
+    display: flex;
+    gap: 8px;
+    z-index: 1;
+}
+
+.pokemon-content ol li {
+    display: flex;
+    gap: 8px;
+    padding: .25rem 1rem;
+    border-radius: 1rem;
+}

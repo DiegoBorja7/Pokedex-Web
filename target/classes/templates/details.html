@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Permissions-Policy" content="interest-cohort=()">
+
+    <title th:text="'Pokemon | ' + ${#strings.capitalize(pokemon.name)}">Detalle del Pokémon</title>
+
+    <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+
+    <link rel="preload" href="/css/main.css" as="style">
+    <link rel="stylesheet" href="/css/main.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap" as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<header class="header-bg fadeIn" aria-label="Encabezado">
+    <div class="header container">
+        <a href="/pokedex/" class="logo">
+            <img src="/img/header.jpg" width="32" height="32" alt="Logo Pokeball">
+        </a>
+        <nav>
+            <ul class="header-menu">
+                <li><a href="/pokedex/">Inicio</a></li>
+                <li><a href="/pokedex/pokemon/1">Pokemons</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main class="content">
+    <section>
+        <div class="pokemon-individual container">
+            <div class="pokemon-info">
+                <div class="pokemon-img slideInLeft">
+                    <img th:src="${pokemon.photo}" width="300" height="300" th:alt="${pokemon.name}">
+                </div>
+                <div class="pokemon-content">
+                    <span class="number slideInDown">#<span th:text="${pokemon.id}"></span></span>
+                    <h1 class="name slideInRight" th:text="${pokemon.name}"></h1>
+                    <ol class="types fadeIn">
+                        <li th:each="type : ${pokemon.types}"
+                            th:text="${type.type.name}"
+                            th:classappend="'type ' + ${type.type.name}">
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <div class="pokemon-detail fadeIn">
+                <h2>Estadísticas</h2>
+                <ul class="stats">
+                    <li th:each="stat : ${pokemon.stats}" class="stat" th:classappend="${stat.stat.name}">
+                        <h3 th:text="${stat.stat.name}"></h3>
+                        <div class="progress">
+                            <span th:text="${stat.baseStat}"></span>
+                            <progress th:value="${stat.baseStat}" max="100"></progress>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer container fadeIn" aria-label="Pie de página">
+    <a href="/pokedex/">Volver a la lista</a>
+</footer>
+</body>
+
+</html>
