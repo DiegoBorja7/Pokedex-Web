@@ -43,7 +43,7 @@
     <ol id="pokemonList" class="pokemons"></ol>
     <ul class="pokemons">
         <li th:each="pokemon : ${pokemons}" class="fadeIn">
-            <a th:href="@{'/pokemon/' + ${pokemon.id}}" class="pokemon">
+            <a th:href="@{'pokemon/' + ${pokemon.id}}" class="pokemon">
                 <span class="number" th:text="'#' + ${pokemon.id}"></span>
                 <h2 class="name" th:text="${pokemon.name}"></h2>
                 <div class="detail">
@@ -60,13 +60,28 @@
     </ul>
 
     <div class="pagination fadeIn">
-        <button id="loadMoreButton" type="button">Cargar mas...</button>
+        <ul class="pagination-list">
+            <li th:if="${currentPage > 1}">
+                <a th:href="@{'/pokedex/?page=1'}" class="small-button">Inicio</a>
+            </li>
+
+            <li th:each="i : ${#numbers.sequence(startPage, endPage)}">
+                <a th:href="@{'/pokedex/?page=' + ${i}}"
+                   th:text="${i}"
+                   th:classappend="${i == currentPage} ? ' active' : ''"></a>
+            </li>
+            <li th:if="${endPage < totalPages}">
+                <a th:href="@{'/pokedex/?page=' + ${totalPages}}" class="small-button">Último</a>
+            </li>
+        </ul>
     </div>
+
 </main>
 
 <footer class="footer container fadeIn" aria-label="Pie de página">
     <h3>Creado por: <a href="https://www.instagram.com/diego.ab7/" target="_blank">@diego.ab7</a>.</h3>
 </footer>
+<button id="scrollToBottom" class="scroll-button">&#8595;</button>
 
 <script src="/js/main.js"></script>
 </body>

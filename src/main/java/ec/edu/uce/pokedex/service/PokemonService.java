@@ -43,4 +43,9 @@ public class PokemonService {
     private Pokemon getPokemonDetailFromUrl(String url) {
         return restTemplate.getForObject(url, Pokemon.class);
     }
-}
+
+    public int getTotalRecords() {
+        String url = POKEAPI_URL + "?limit=1";
+        PokemonList response = restTemplate.getForObject(url, PokemonList.class);
+        return (response != null) ? response.getCount() : 0;
+    }}

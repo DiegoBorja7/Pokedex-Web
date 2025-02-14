@@ -39,3 +39,100 @@ body::-webkit-scrollbar-thumb {
     padding-left: 20px;
     padding-right: 20px;
 }
+
+.titulo {
+    display: block;
+    position: relative;
+    z-index: 10;
+    background-color: white;
+    padding: 10px 0;
+}
+
+/* Contenedor de paginación */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.small-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 14px;
+    font-size: 14px;
+    font-weight: bold;
+    width: auto;
+    height: 40px;
+    min-width: 70px;
+    border-radius: 20px;
+    background-color: #fff;
+    color: #333;
+    text-decoration: none;
+    border: 2px solid #333;
+    transition: background-color 0.3s, color 0.3s;
+    white-space: nowrap;
+}
+.small-button:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Lista de botones */
+.pagination-list {
+    display: flex;
+    list-style: none;
+    gap: 8px;
+    padding: 0;
+}
+
+.pagination-list li a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border: 2px solid #666;
+    border-radius: 50%;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+
+/* Efecto hover y botón activo */
+.pagination-list li a:hover,
+.pagination-list li a.active {
+    background-color: #333;
+    border-color: #333;
+    color: #fff;
+}
+
+.pagination-list li .small-button {
+    width: auto;
+    padding: 8px 16px;
+    min-width: 70px;
+    border-radius: 20px;
+}
+
+.scroll-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #fff;
+    border: 2px solid #333;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s, transform 0.2s, border-color 0.3s;
+}
+
+.scroll-button:hover {
+    background: #333;
+    color: #fff;
+    border-color: #fff;
+    transform: scale(1.1);
+}
