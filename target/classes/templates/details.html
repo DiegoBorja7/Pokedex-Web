@@ -61,7 +61,7 @@
                 <h2>Estadísticas</h2>
                 <ul class="stats">
                     <li th:each="stat : ${pokemon.stats}" class="stat" th:classappend="${stat.stat.name}">
-                        <h3 th:text="${stat.stat.name}"></h3>
+                        <h3 th:text="#{'pokemon.stat.' + ${stat.stat.name}}"></h3>
                         <div class="progress">
                             <span th:text="${stat.baseStat}"></span>
                             <progress th:value="${stat.baseStat}" max="100"></progress>

@@ -15,7 +15,7 @@ public class PokemonDatabaseService {
             pokemonService.fetchAndSaveAllPokemons();
             System.out.println("Base de datos poblada con éxito!");
         } else {
-            System.out.println("La base de datos ya tiene registros. Omitting población.");
+            System.out.println("La base de datos ya tiene registros.\nOmitiendo población.");
         }
     }
 }
