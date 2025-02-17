@@ -18,13 +18,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap" as="style">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/7ac0d0fdea.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
 <header class="header-bg fadeIn" aria-label="Encabezado">
     <div class="header container">
         <a href="/pokedex/" class="logo">
-            <img src="/img/header.jpg" width="32" height="32" alt="Logo Pokeball">
+            <img src="/img/header.png" width="32" height="32" alt="Logo Pokeball">
         </a>
         <nav>
             <ul class="header-menu">
@@ -38,6 +39,9 @@
 <main class="content">
     <section>
         <div class="pokemon-individual container">
+            <div class="background-img">
+                <img src="/img/details.svg" alt="Background">
+            </div>
             <div class="pokemon-info">
                 <div class="pokemon-img slideInLeft">
                     <img th:src="${pokemon.photo}" width="300" height="300" th:alt="${pokemon.name}">
@@ -67,11 +71,16 @@
             </div>
         </div>
     </section>
+    <div class="pokemon-navigation">
+        <a th:href="@{'/pokedex/pokemon/' + ${previousId}}"
+           class="nav-button prev">
+            <i class="fa-solid fa-chevron-left"></i>
+        </a>
+        <a th:href="@{'/pokedex/pokemon/' + ${nextId}}"
+           class="nav-button next">
+            <i class="fa-solid fa-chevron-right"></i>
+        </a>
+    </div>
 </main>
-
-<footer class="footer container fadeIn" aria-label="Pie de página">
-    <a href="/pokedex/">Volver a la lista</a>
-</footer>
 </body>
-
 </html>

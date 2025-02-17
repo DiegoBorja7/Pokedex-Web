@@ -16,18 +16,23 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap" as="style">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/7ac0d0fdea.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
 <header class="header-bg fadeIn" aria-label="Encabezado">
     <div class="header container">
         <a href="/pokedex/" class="logo">
-            <img src="/img/header.jpg" width="32" height="32" alt="Logo Pokeball">
+            <img src="/img/header.png" width="32" height="32" alt="Logo Pokeball">
         </a>
 
-        <label for="search">
-            <input type="text" placeholder="Buscar Pokémon" id="search" name="search">
-        </label>
+        <div class="search-container">
+            <input type="text" placeholder="Buscar Pokemon" id="search" name="query">
+            <button id="searchButton" type="button">
+                Buscar
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+        </div>
 
         <nav aria-label="Principal">
             <ul class="header-menu">
@@ -40,8 +45,8 @@
 
 <main class="content">
     <h1 class="titulo">Lista de Pokemons</h1>
-    <ol id="pokemonList" class="pokemons"></ol>
-    <ul class="pokemons">
+
+    <ol id="pokemonList" class="pokemons" th:fragment="pokemonList">
         <li th:each="pokemon : ${pokemons}" class="fadeIn">
             <a th:href="@{'pokemon/' + ${pokemon.id}}" class="pokemon">
                 <span class="number" th:text="'#' + ${pokemon.id}"></span>
@@ -57,12 +62,15 @@
                 </div>
             </a>
         </li>
-    </ul>
+    </ol>
 
     <div class="pagination fadeIn">
         <ul class="pagination-list">
             <li th:if="${currentPage > 1}">
-                <a th:href="@{'/pokedex/?page=1'}" class="small-button">Inicio</a>
+                <a th:href="@{'/pokedex/?page=1'}" class="small-button">
+                    <i class="fa-solid fa-forward-step fa-flip-horizontal"></i>
+                    Inicio
+                </a>
             </li>
 
             <li th:each="i : ${#numbers.sequence(startPage, endPage)}">
@@ -71,7 +79,10 @@
                    th:classappend="${i == currentPage} ? ' active' : ''"></a>
             </li>
             <li th:if="${endPage < totalPages}">
-                <a th:href="@{'/pokedex/?page=' + ${totalPages}}" class="small-button">Último</a>
+                <a th:href="@{'/pokedex/?page=' + ${totalPages}}" class="small-button">
+                    Último
+                    <i class="fa-solid fa-forward-step"></i></i>
+                </a>
             </li>
         </ul>
     </div>
@@ -79,11 +90,11 @@
 </main>
 
 <footer class="footer container fadeIn" aria-label="Pie de página">
-    <h3>Creado por: <a href="https://www.instagram.com/diego.ab7/" target="_blank">@diego.ab7</a>.</h3>
+    <h3>Creado por: <a href="https://www.linkedin.com/in/diego-borja-b1830b119/" target="_blank">@diego.borja</a>.</h3>
 </footer>
-<button id="scrollToBottom" class="scroll-button">&#8595;</button>
-
+<button id="scrollToBottom" class="scroll-button">
+    <i class="fa-solid fa-angles-down fa-bounce"></i>
+</button>
 <script src="/js/main.js"></script>
 </body>
-
 </html>

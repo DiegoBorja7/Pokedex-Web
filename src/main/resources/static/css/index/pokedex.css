@@ -26,7 +26,7 @@
 
 .pokemon::before {
     content: '';
-    background: url(../../img/header.jpg) no-repeat bottom 32px right / 232px 232px;
+    background: url(../../img/header.png) no-repeat bottom 32px right / 232px 232px;
     position: absolute;
     bottom: -120px;
     left: 140px;
@@ -116,6 +116,10 @@
 }
 
 .hide {
+    display: none;
+}
+
+.hidden {
     display: none;
 }
 
